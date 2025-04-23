@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 class SiteLogo extends StatelessWidget {
-  const SiteLogo({super.key});
+  const SiteLogo({super.key,required this.onTap,});
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/styles/style.dart';
 import 'package:my_portfolio/widgets/site_logo.dart';
 
 import '../constants/colors.dart';
@@ -17,24 +18,18 @@ class _HeaderDdestopState extends State<HeaderDdestop> {
     return  Container(height: 60,
           margin: EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
           width: double.maxFinite,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-              Colors.transparent,
-              CustomColor.bgLight1,
-              ],
-              ),
-              borderRadius: BorderRadius.circular(100)
-          ),
+          decoration: PHeaderDecoration,
           child: Row(
             children: [
-              SiteLogo(onTap: (){},),
+              SiteLogo(
+                onTap: (){},
+                ),
             Spacer(),
-            for(int i=0;i<navTitle.length;i++)
+            for(int i=0;i<navTitles.length;i++)
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: TextButton(
-              onPressed: () {},child: Text(navTitle[i],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: CustomColor.whitePrimary),),),
+              onPressed: () {},child: Text(navTitles[i],style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: CustomColor.whitePrimary),),),
             )
             ],
           ),
