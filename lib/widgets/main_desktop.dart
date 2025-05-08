@@ -86,8 +86,11 @@ class MainDesktop extends StatelessWidget {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(backgroundColor: CustomColor.yellowPrimary),
                           onPressed: () {},
-                          child: Text("Get My resume",style: TextStyle(color: Colors.deepPurple,fontWeight: FontWeight.bold)
-                        ),),
+                          child: ElevatedButton(
+                            onPressed: (){},
+                            child: Text("Get My resume",style: TextStyle(color: Colors.deepPurple,fontWeight: FontWeight.bold)
+                                                    ),
+                          ),),
                       ],
                     ),
                   ],
