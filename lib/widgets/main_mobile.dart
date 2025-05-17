@@ -3,21 +3,38 @@ import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
 
-class MainDesktop extends StatelessWidget {
-  const MainDesktop({super.key});
+class MainMobile extends StatelessWidget {
+  const MainMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.0),
-      height: MediaQuery.of(context).size.height * 0.5,
-      constraints: BoxConstraints(minHeight: 350.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      margin: EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
+      height: screenHeight,
+      constraints: const BoxConstraints(minHeight: 560.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            "assets/banner.png",
-            width: MediaQuery.of(context).size.width * 0.5,
+          //avatar
+          ShaderMask(
+            shaderCallback: (bounds) {
+              return LinearGradient(colors: [
+                CustomColor.bgLight1.withOpacity(0.6),
+                CustomColor.backgroundColor.withOpacity(0.6),
+              ]).createShader(bounds);
+            },
+            blendMode: BlendMode.srcATop,
+            child: Image.asset(
+              "assets/banner.png",
+              width: screenWidth,
+            ),
+          ),
+          //text
+          SizedBox(
+            height: 10.0,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -31,7 +48,7 @@ class MainDesktop extends StatelessWidget {
                     WavyAnimatedText(
                       'Hello',
                       textStyle: TextStyle(
-                        fontSize: 30.0,
+                        fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                         color: CustomColor.yellowSecondary,
                       ),
@@ -39,7 +56,7 @@ class MainDesktop extends StatelessWidget {
                     WavyAnimatedText(
                       'I am Eastodev Roy Utso',
                       textStyle: TextStyle(
-                        fontSize: 30.0,
+                        fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                         color: CustomColor.yellowSecondary,
                       ),
@@ -47,7 +64,7 @@ class MainDesktop extends StatelessWidget {
                     WavyAnimatedText(
                       'A Flutter Developer',
                       textStyle: TextStyle(
-                        fontSize: 30.0,
+                        fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                         color: CustomColor.yellowSecondary,
                       ),
@@ -55,7 +72,7 @@ class MainDesktop extends StatelessWidget {
                     WavyAnimatedText(
                       'And A Graphic Designer',
                       textStyle: TextStyle(
-                        fontSize: 30.0,
+                        fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                         color: CustomColor.yellowSecondary,
                       ),
@@ -85,11 +102,15 @@ class MainDesktop extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10.0),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text("Get My resume",
-                    style: TextStyle(
-                        color: Colors.deepPurple, fontWeight: FontWeight.bold)),
+              SizedBox(
+                width: 150.0,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text("Get My resume",
+                      style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontWeight: FontWeight.bold)),
+                ),
               ),
             ],
           ),
